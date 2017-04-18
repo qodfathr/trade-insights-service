@@ -75,7 +75,8 @@ public class TradeRecommendationsEngine {
             "JIM",
             "OCRL",
             "RTH",
-            "IMB"
+            "IMB",
+            "CARL"
         );
         int index  = java.util.concurrent.ThreadLocalRandom.current().nextInt(min, options.size());
         System.out.println(index);
