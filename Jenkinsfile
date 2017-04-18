@@ -32,7 +32,7 @@ def envProd = utils.environmentNamespace('run')
 def stashName = ""
 
 mavenNode {
-  git 'https://github.com/qodfathr/tue1804170950.git'
+  git 'https://github.com/qodfathr/trade-insights-service.git'
   if (utils.isCI()){
 
     mavenCI{}
