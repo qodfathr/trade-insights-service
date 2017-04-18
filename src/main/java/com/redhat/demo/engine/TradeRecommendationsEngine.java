@@ -66,6 +66,7 @@ public class TradeRecommendationsEngine {
         int max = 10;
         int min = 0;
         List<String> options = Arrays.asList(
+            "CARL",
             "BABO",
             "TODD",
             "ACME",
@@ -75,8 +76,8 @@ public class TradeRecommendationsEngine {
             "JIM",
             "OCRL",
             "RTH",
-            "IMB",
-            "CARL"
+            "IMB"
+
         );
         int index  = java.util.concurrent.ThreadLocalRandom.current().nextInt(min, options.size());
         System.out.println(index);
