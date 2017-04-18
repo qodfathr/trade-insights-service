@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.redhat.demo.http.TradeRecommendations;
+import com.redhat.demo.http.TradeRecommendationsService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -24,7 +24,7 @@ public class HttpApplicationTest {
     public void before(TestContext context) {
         vertx = Vertx.vertx();
         vertx.exceptionHandler(context.exceptionHandler());
-        vertx.deployVerticle(TradeRecommendations.class.getName(), context.asyncAssertSuccess());
+        vertx.deployVerticle(TradeRecommendationsService.class.getName(), context.asyncAssertSuccess());
         client = WebClient.create(vertx);
     }
 
@@ -34,7 +34,7 @@ public class HttpApplicationTest {
     }
 
     @Test
-    public void callRecommendationTest(TestContext context) {
+    public void checkEndpointExistsTest(TestContext context) {
         // Send a request and get a response
         Async async = context.async();
         client.get(8080, "localhost", "/")

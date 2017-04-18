@@ -1,10 +1,8 @@
-package com.redhat.demo.http;
+package com.redhat.demo.engine;
 
-import io.vertx.core.AbstractVerticle;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.shareddata.SharedData;
-import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 
 import java.time.LocalDateTime;
@@ -14,29 +12,16 @@ import java.util.Date;
 import java.util.List;
 import io.vertx.core.shareddata.LocalMap;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
-
-public class TradeRecommendations extends AbstractVerticle {
+public class TradeRecommendationsEngine {
 
    private SharedData engineData;
 
-    @Override
-    public void start() {
-        engineData = vertx.sharedData();
-
-        Router router = Router.router(vertx);
-
-        router.get("/").handler(this::nextRecommendation);
-
-        vertx.createHttpServer()
-          .requestHandler(router::accept)
-          .listen(8080);
-
-    } // start
-
-    private void nextRecommendation(RoutingContext rc) {
+   public TradeRecommendationsEngine(SharedData engineData) {
+     this.engineData = engineData;
+   }
+  
+   public void nextRecommendation(RoutingContext rc) {
         /* format of results
             {
                 "order" : "BUY ACME",
@@ -156,5 +141,4 @@ public class TradeRecommendations extends AbstractVerticle {
     LocalDateTime tomorrow = LocalDateTime.now().plusHours(3);
     return Date.from(tomorrow.atZone(ZoneId.systemDefault()).toInstant());
    }
-   
 }
