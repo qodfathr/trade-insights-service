@@ -66,6 +66,7 @@ public class TradeRecommendationsEngine {
         int max = 10;
         int min = 0;
         List<String> options = Arrays.asList(
+            "CARL",
             "BABO",
             "TODD",
             "FALK"
