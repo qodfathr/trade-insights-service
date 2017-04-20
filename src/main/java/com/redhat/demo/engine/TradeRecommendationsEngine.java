@@ -47,6 +47,7 @@ public class TradeRecommendationsEngine {
 
         String pick = determineStockPick();
         
+        // populate JSON
         detail.put("targetPrice", determineTargetPrice(pick));
         detail.put("numShares", determineNumShares());
 
