@@ -1,5 +1,7 @@
 # Introduction
 
+TEST
+
 This project exposes a simple HTTP endpoint exposing an amazing  _recommendation_ service. The service is available at this address: 
 _http://hostname:port/_ and returns a JSON response.
 
