@@ -12,8 +12,13 @@ import java.util.Date;
 import java.util.List;
 import io.vertx.core.shareddata.LocalMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.DecimalFormat;
 public class TradeRecommendationsEngine {
+
+   private Logger log = LoggerFactory.getLogger(TradeRecommendationsEngine.class);
 
    private SharedData engineData;
 
@@ -62,6 +67,7 @@ public class TradeRecommendationsEngine {
         rc.response()
           .putHeader(HttpHeaders.CONTENT_TYPE,"application/json")
           .end(recommendation.encode());
+        this.log.info("Created new trade recommendation: " + recommendation.encode());
     }
 
     private String determineStockPick() {
