@@ -17,6 +17,8 @@ public class TradeRecommendationsEngine {
 
    private SharedData engineData;
 
+   private int aggressionFactor = 1;
+
    public TradeRecommendationsEngine(SharedData engineData) {
      this.engineData = engineData;
    }
@@ -46,7 +48,7 @@ public class TradeRecommendationsEngine {
         String pick = determineStockPick();
         
         detail.put("targetPrice", determineTargetPrice(pick));
-        detail.put("numShares",determineNumShares());
+        detail.put("numShares", determineNumShares());
 
         context.put("confidenceScore",determineConfidenceScore());
         context.put("tradeWindowStart", determineTradeWindowStartDate().toString());
@@ -66,6 +68,7 @@ public class TradeRecommendationsEngine {
         int max = 10;
         int min = 0;
         List<String> options = Arrays.asList(
+            "BOBO",
             "CARL",
             "BABO",
             "TODD",
@@ -77,7 +80,9 @@ public class TradeRecommendationsEngine {
         return options.get(index);
     }
     private int determineNumShares() {
-        return java.util.concurrent.ThreadLocalRandom.current().nextInt(50, 5000);
+        int r = java.util.concurrent.ThreadLocalRandom.current().nextInt(50, 100);
+        System.out.println(r);
+        return this.aggressionFactor * r;
     }
 
     private double determineTargetPrice() {        
