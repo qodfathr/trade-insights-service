@@ -58,7 +58,7 @@ public class TradeRecommendationsEngine {
 
         context.put("confidenceScore",determineConfidenceScore());
         context.put("tradeWindowStart", determineTradeWindowStartDate().toString());
-        //context.put("tradeWindowEnd", determineTradeWindowEndDate().toString());
+        context.put("tradeWindowEnd", determineTradeWindowEndDate().toString());
 
         recommendation.put("order", "BUY " + pick);
         recommendation.put("detail",detail);
@@ -72,7 +72,6 @@ public class TradeRecommendationsEngine {
 
     private String determineStockPick() {
         // int index = new java.util.Random().nextInt();
-        int max = 10;
         int min = 0;
         List<String> options = Arrays.asList(
             "BOBO",
