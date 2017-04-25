@@ -1,6 +1,7 @@
 #!/usr/bin/groovy
 @library('github.com/rawlingsj/fabric8-pipeline-library@pv')
 
+
 def localItestPattern = ""
 try {
   localItestPattern = ITEST_PATTERN
