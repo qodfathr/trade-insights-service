@@ -58,7 +58,7 @@ public class TradeRecommendationsEngine {
 
         context.put("confidenceScore",determineConfidenceScore());
         context.put("tradeWindowStart", determineTradeWindowStartDate().toString());
-        context.put("tradeWindowEnd", determineTradeWindowEndDate().toString());
+        //context.put("tradeWindowEnd", determineTradeWindowEndDate().toString());
 
         recommendation.put("order", "BUY " + pick);
         recommendation.put("detail",detail);
@@ -75,10 +75,10 @@ public class TradeRecommendationsEngine {
         int min = 0;
         List<String> options = Arrays.asList(
             "BOBO",
-            "CARL",
             "BABO",
             "TODD",
-            "FALK"
+            "FALK",
+            "PAUL"
         );
         int index  = java.util.concurrent.ThreadLocalRandom.current().nextInt(min, options.size());
         System.out.println(index);
@@ -91,9 +91,9 @@ public class TradeRecommendationsEngine {
         return this.aggressionFactor * r;
     }
 
-    private double determineTargetPrice() {        
-        return 10.85;
-    }
+//    private double determineTargetPrice() {        
+//        return 10.85;
+//    }
 
     private double determineTargetPrice(String ticker) {        
          LocalMap<String, Double> previousMap = engineData.getLocalMap("previousMap");
