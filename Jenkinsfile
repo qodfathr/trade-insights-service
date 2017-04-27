@@ -1,5 +1,5 @@
 #!/usr/bin/groovy
-@Library('github.com/rawlingsj/fabric8-pipeline-library@oom')
+@Library('github.com/fabric8io/fabric8-pipeline-library@master')
 
 
 def localItestPattern = ""
@@ -20,10 +20,10 @@ def versionPrefix = ""
 try {
   versionPrefix = VERSION_PREFIX
 } catch (Throwable e) {
-  versionPrefix = "1.0"
+  versionPrefix = "2.0"
 }
 
-def canaryVersion = "${versionPrefix}.${env.BUILD_NUMBER}"
+def canaryVersion = "2.0.${env.BUILD_NUMBER}"
 
 def fabric8Console = "${env.FABRIC8_CONSOLE ?: ''}"
 def utils = new io.fabric8.Utils()
