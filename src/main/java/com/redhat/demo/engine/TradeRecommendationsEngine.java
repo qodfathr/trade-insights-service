@@ -58,7 +58,7 @@ public class TradeRecommendationsEngine {
 
         context.put("confidenceScore",determineConfidenceScore());
         context.put("tradeWindowStart", determineTradeWindowStartDate().toString());
-        context.put("tradeWindowEnd", determineTradeWindowEndDate().toString());
+        //context.put("tradeWindowEnd", determineTradeWindowEndDate().toString());
 
         recommendation.put("order", "BUY " + pick);
         recommendation.put("detail",detail);
